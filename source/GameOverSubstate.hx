@@ -37,7 +37,11 @@ class GameOverSubstate extends MusicBeatSubstate
 	{
 		instance = this;
 		PlayState.instance.callOnLuas('onGameOverStart', []);
-
+		
+                #if android
+		addVirtualPad(NONE, A_B);
+		addPadCamera();
+		#end
 		super.create();
 	}
 
