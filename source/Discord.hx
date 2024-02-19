@@ -2,7 +2,7 @@ package;
 
 import Sys.sleep;
 import 
-#end
+
 	public function new()
 	{
 		trace("Discord Client starting...");
