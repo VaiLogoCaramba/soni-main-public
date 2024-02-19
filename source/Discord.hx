@@ -1,7 +1,7 @@
 package;
 
 import Sys.sleep;
-import discord_rpc.DiscordRpc;
+import 
 
 #if LUA_ALLOWED
 import llua.Lua;
