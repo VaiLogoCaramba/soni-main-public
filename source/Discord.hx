@@ -3,8 +3,6 @@ package;
 import Sys.sleep;
 import 
 
-using StringTools;
-
 class DiscordClient
 {
 	public function new()
