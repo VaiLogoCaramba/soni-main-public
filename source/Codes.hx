@@ -140,28 +140,15 @@ class Codes extends MusicBeatState
                     FlxG.mouse.visible = false;
                     FlxG.sound.pause();
                     canSelect = false;
-					(new FlxVideo(Paths.video('die'))).finishCallback = function() {
+					
 
-                        FlxG.sound.resume();
-                        FlxG.mouse.visible = true;
-                        canSelect = true;
-                    }
-                    code.text = '';
-                case '6969': //Funni peter griffin running code
-                    FlxG.mouse.visible = false;
-                    FlxG.sound.pause();
-                    canSelect = false;
-					(new FlxVideo(Paths.video('Peter Griffin in City Escape'))).finishCallback = function() {
+                        
+                    
+                    
+                
+                    
+					
 
-                        FlxG.sound.resume();
-                        FlxG.mouse.visible = true;
-                        canSelect = true;
-                    }
-                    code.text = '';
-                default: //Nothing lol
-                    code.text = '';
-                    if(canSelect)
-                        FlxG.camera.shake(0.015, 0.2);
-            }
-    }
-}
+       }                 
+    }        
+ }   

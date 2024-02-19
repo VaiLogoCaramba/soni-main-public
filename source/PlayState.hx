@@ -395,6 +395,8 @@ class PlayState extends MusicBeatState
 		FlxG.cameras.add(camOther);
 		grpNoteSplashes = new FlxTypedGroup<NoteSplash>();
 
+		
+		
 		FlxCamera.defaultCameras = [camGame];
 		CustomFadeTransition.nextCamera = camOther;
 		//FlxG.cameras.setDefaultDrawTarget(camGame, true);
@@ -437,7 +439,7 @@ class PlayState extends MusicBeatState
 			camHUD.filtersEnabled = true;
 			camNotes.filtersEnabled = true;
 		}
-		filters.push(chromaticAberration);
+		filters.push;
 
 		GameOverSubstate.resetVariables();
 		var songName:String = Paths.formatToSongPath(SONG.song);
@@ -1930,6 +1932,8 @@ class PlayState extends MusicBeatState
 		add(timeTxt);
 		timeBarBG.sprTracker = timeBar;
 
+		
+				
 		strumLineNotes = new FlxTypedGroup<StrumNote>();
 		add(strumLineNotes);
 		add(grpNoteSplashes);
@@ -2085,6 +2089,11 @@ class PlayState extends MusicBeatState
 		// FlxG.camera.alpha = 0.7;
 		// UI_camera.zoom = 1;
 
+		#if android
+		addAndroidControls();
+		androidControls.visible = true;
+		#end
+			
 		// cameras = [FlxG.cameras.list[1]];
 		startingSong = true;
 
@@ -2970,7 +2979,7 @@ class PlayState extends MusicBeatState
 
 		var songName:String = Paths.formatToSongPath(SONG.song);
 		var file:String = Paths.json(songName + '/events');
-		#if sys
+		#if MODS_ALLOWED
 		if (FileSystem.exists(Paths.modsJson(songName + '/events')) || FileSystem.exists(file)) {
 		#else
 		if (OpenFlAssets.exists(file)) {
@@ -3507,7 +3516,7 @@ class PlayState extends MusicBeatState
 		}
 
 		if(Paths.formatToSongPath(SONG.song) == 'broken-reality' && ClientPrefs.funnyShaders)
-			setChrome(bilSucks);
+			(bilSucks);
 
 		super.update(elapsed);
 
