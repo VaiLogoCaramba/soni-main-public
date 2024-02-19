@@ -4,7 +4,6 @@ import Sys.sleep;
 import 
 
 #if LUA_ALLOWED
-import llua.Lua;
 import llua.State;
 #end
 
