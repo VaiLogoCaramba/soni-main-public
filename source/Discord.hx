@@ -15,7 +15,6 @@ class DiscordClient
 	public function new()
 	{
 		trace("Discord Client starting...");
-		DiscordRpc.start({
 			clientID: "962874789473693796",
 			onReady: onReady,
 			onError: onError,
@@ -26,25 +25,21 @@ class DiscordClient
 		while (true)
 		{
 			DiscordRpc.process();
-			sleep(2);
 			//trace("Discord Client Update");
 		}
 
 		DiscordRpc.shutdown();
-	}
-	
+}
 	public static function shutdown()
 	{
 		DiscordRpc.shutdown();
 	}
 	
-	static function onReady()
 	{
 		DiscordRpc.presence({
 			details: "In the Menus",
 			state: null,
 			largeImageKey: 'icon',
-			largeImageText: "Freaky Night With Soni"
 		});
 	}
 
@@ -76,7 +71,6 @@ class DiscordClient
 			endTimestamp = startTimestamp + endTimestamp;
 		}
 
-		DiscordRpc.presence({
 			details: details,
 			state: state,
 			largeImageKey: 'icon',
