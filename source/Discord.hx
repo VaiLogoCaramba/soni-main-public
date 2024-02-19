@@ -1,11 +1,21 @@
 package;
 
 import Sys.sleep;
-import 
+import discord_rpc.DiscordRpc;
 
+#if LUA_ALLOWED
+import llua.Lua;
+import llua.State;
+#end
+
+using StringTools;
+
+class DiscordClient
+{
 	public function new()
 	{
 		trace("Discord Client starting...");
+		DiscordRpc.start({
 			clientID: "962874789473693796",
 			onReady: onReady,
 			onError: onError,
@@ -16,21 +26,25 @@ import
 		while (true)
 		{
 			DiscordRpc.process();
+			sleep(2);
 			//trace("Discord Client Update");
 		}
 
 		DiscordRpc.shutdown();
-}
+	}
+	
 	public static function shutdown()
 	{
 		DiscordRpc.shutdown();
 	}
 	
+	static function onReady()
 	{
 		DiscordRpc.presence({
 			details: "In the Menus",
 			state: null,
 			largeImageKey: 'icon',
+			largeImageText: "Freaky Night With Soni"
 		});
 	}
 
@@ -62,6 +76,7 @@ import
 			endTimestamp = startTimestamp + endTimestamp;
 		}
 
+		DiscordRpc.presence({
 			details: details,
 			state: state,
 			largeImageKey: 'icon',
