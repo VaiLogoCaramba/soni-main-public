@@ -3,7 +3,7 @@ package;
 #if MODS_ALLOWED
 import sys.io.File;
 import sys.FileSystem;
-#elseif android
+#else
 import openfl.utils.Assets;
 #end
 import haxe.Json;
