@@ -125,7 +125,7 @@ class OptionsState extends MusicBeatState
 			
 		}
     }
-		#end
+}
 	
 	function changeSelection(change:Int = 0) {
 		curSelected += change;
