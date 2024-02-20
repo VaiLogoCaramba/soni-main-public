@@ -50,6 +50,14 @@ class OptionsState extends MusicBeatState
 				LoadingState.loadAndSwitchState(new options.NoteOffsetState());
 		}
 	}
+	        #if android
+		if (virtualPad.buttonC.justPressed) {
+			#if android
+			removeVirtualPad();
+			#end
+			openSubState(new android.AndroidControlsSubState());
+		}
+		#end
 
 	var selectorLeft:Alphabet;
 	var selectorRight:Alphabet;
@@ -96,15 +104,6 @@ class OptionsState extends MusicBeatState
 		super.closeSubState();
 		ClientPrefs.saveSettings();
 	}
-
-	        #if android
-		if (virtualPad.buttonC.justPressed) {
-			#if android
-			removeVirtualPad();
-			#end
-			openSubState(new android.AndroidControlsSubState());
-		}
-		#end
 
 	override function update(elapsed:Float) {
 		super.update(elapsed);
