@@ -51,6 +51,16 @@ class OptionsState extends MusicBeatState
 		}
 	}
 
+        #if android
+		if (virtualPad.buttonC.justPressed) {
+			#if android
+			removeVirtualPad();
+			#end
+			openSubState(new android.AndroidControlsSubState());
+		}
+		#end
+	
+
 	var selectorLeft:Alphabet;
 	var selectorRight:Alphabet;
 
@@ -114,15 +124,6 @@ class OptionsState extends MusicBeatState
 
 		if (controls.ACCEPT) {
 			openSelectedSubstate(options[curSelected]);
-			#if android
-		if (virtualPad.buttonC.justPressed) {
-			#if android
-			removeVirtualPad();
-			#end
-			openSubState(new android.AndroidControlsSubState());
-		}
-		#end
-			
 		}
     }
 }
@@ -151,4 +152,5 @@ class OptionsState extends MusicBeatState
 		}
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
+}
 #end
