@@ -86,9 +86,9 @@ class OptionsState extends MusicBeatState
 		changeSelection();
 		ClientPrefs.saveSettings();
 		
-                #if android
-		addVirtualPad(UP_DOWN, A_B_C);
-		#end
+        #if android
+        addVirtualPad(UP_DOWN, A_B_C);
+        #end
 		super.create();
 	}
 
@@ -114,17 +114,15 @@ class OptionsState extends MusicBeatState
 
 		if (controls.ACCEPT) {
 			openSelectedSubstate(options[curSelected]);
-			{
-			#if android
-		        if (virtualPad.buttonC.justPressed) {
+		}
+	    #if android
+		if (virtualPad.buttonC.justPressed) {
 			#if android
 			removeVirtualPad();
 			#end
 			openSubState(new android.AndroidControlsSubState());
 		}
 		#end
-		}
-	}
 	
 	function changeSelection(change:Int = 0) {
 		curSelected += change;
@@ -150,5 +148,4 @@ class OptionsState extends MusicBeatState
 		}
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
-	
 }
